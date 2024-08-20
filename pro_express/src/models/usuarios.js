@@ -1,45 +1,40 @@
-const {Sequelize} = require("../config/database")
-const {DataTypes} = require("sequelize")
+const { sequelize } = require("../config/database");
+const { DataTypes } = require("sequelize");
 
-const ususario = Sequelize.define(
-  "usuarios",
+const Usuario = sequelize.define(
+  "usuario",
   {
-    id_usuario: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+    uid_usuario: {
+      type: DataTypes.STRING(255),
       primaryKey: true,
+      allowNull: false,
     },
     nombre_completo: {
-      type: DataTypes.STRING,
-      allowNull: false, // Considera si este campo debería ser obligatorio
+      type: DataTypes.STRING(255),
+      allowNull: false,
     },
     correo_electronico: {
-      type: DataTypes.STRING,
-      allowNull: false, // Considera si este campo debería ser obligatorio
-      unique: true, // Puedes agregar una restricción de unicidad si cada correo debe ser único
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: true,
     },
     telefono: {
-      type: DataTypes.STRING,
-      allowNull: true, // Puedes hacer este campo opcional si no siempre se proporciona
+      type: DataTypes.STRING(20),
+      allowNull: true, // Opcional
     },
     direccion: {
-      type: DataTypes.STRING,
-      allowNull: true, // Puedes hacer este campo opcional si no siempre se proporciona
+      type: DataTypes.STRING(255),
+      allowNull: true, // Opcional
     },
     estado_cuenta: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false, // Considera si este campo debería ser obligatorio
-    },
-    fecha_inicio: {
-      type: DataTypes.DATE,
-      allowNull: false, // Considera si este campo debería ser obligatorio
-      defaultValue: DataTypes.NOW, // Puedes establecer un valor predeterminado si aplica
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
   },
   {
     tableName: "usuarios",
-    timestamps: false, // Configura esto según si deseas que Sequelize maneje timestamps automáticamente
+    timestamps: false, // No manejar timestamps automáticamente
   }
 );
 
-module.export(ususario)
+module.exports = Usuario;

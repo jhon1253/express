@@ -1,27 +1,31 @@
-const { Sequelize } = require("../config/database");
+const { sequelize } = require("../config/database");
 const { DataTypes } = require("sequelize");
 
-const facturaVentas = sequelize.define(
-  "factura_ventas",
+const FacturaVenta = sequelize.define(
+  "factura_venta",
   {
     id_factura: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    id_cliente: {
-      type: DataTypes.INTEGER,
+    estado_factura: {
+      type: DataTypes.STRING(50),
       allowNull: false,
-      references: {
-        model: "usuarios",
-        key: "id_usuario",
-      },
     },
-    fecha_emision: {
+    fecha_pedido: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    total: {
+    id_usuario: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      references: {
+        model: "usuarios",
+        key: "uid_usuario",
+      },
+    },
+    precio_total: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
@@ -32,4 +36,4 @@ const facturaVentas = sequelize.define(
   }
 );
 
-module.export(facturaVentas);
+module.exports = FacturaVenta;
