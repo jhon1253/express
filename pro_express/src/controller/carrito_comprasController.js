@@ -1,4 +1,4 @@
-const CarritoCompra = require("../models/carrito_compras");
+const CarritoCompra = require("../models/carrito_Compras");
 
 const CarritoGet = async (req, res) => {
   try {
@@ -11,13 +11,15 @@ const CarritoGet = async (req, res) => {
 
 const CarritoPost = async (req, res) => {
   const { 
-     estado_carrito,
-     id_usuario
+    id_carrito,
+    id_producto,
+    id_usuario
      } = req.body;
 
   try {
     const NewCarrito = await CarritoCompra.create({
-      estado_carrito,
+      id_carrito,
+      id_producto,
       id_usuario,
     });
 

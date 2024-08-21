@@ -10,8 +10,8 @@ const FacturaVenta = sequelize.define(
       primaryKey: true,
     },
     estado_factura: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: true, // Opcional, ya que en SQL no se especifica NOT NULL
     },
     fecha_pedido: {
       type: DataTypes.DATE,
@@ -24,6 +24,10 @@ const FacturaVenta = sequelize.define(
         model: "usuarios",
         key: "uid_usuario",
       },
+    },
+    id_producto: {
+      type: DataTypes.JSONB, // JSONB para PostgreSQL
+      allowNull: true, // Opcional, ya que en SQL no se especifica NOT NULL
     },
     precio_total: {
       type: DataTypes.DECIMAL(10, 2),

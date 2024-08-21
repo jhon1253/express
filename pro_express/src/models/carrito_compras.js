@@ -9,9 +9,9 @@ const CarritoCompra = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    estado_carrito: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
+    id_producto: {
+      type: DataTypes.JSONB, // JSONB para PostgreSQL
+      allowNull: true, // Opcional, ya que en SQL no se especifica NOT NULL
     },
     id_usuario: {
       type: DataTypes.STRING(255),
