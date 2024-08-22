@@ -28,13 +28,11 @@ const UsuariosPost = async (req, res) => {
       direccion,
       estado_cuenta,
     });
-
     res.status(200).json(NewUsuario);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
-
 
 const UsuariosPut = async (req, res) => {
   const { uid_usuario } = req.params;
@@ -67,8 +65,6 @@ const UsuariosPut = async (req, res) => {
   }
 };
 
-
-
 const UsuariosDelete = async (req, res) => {
   const { uid_usuario } = req.params;
 
@@ -83,11 +79,8 @@ const UsuariosDelete = async (req, res) => {
 
     res.status(200).json({ message: "Usuario eliminado correctamente" });
   } catch (error) {
-
     res.status(400).json({ message: error.message });
   }
 };
 
 module.exports = { UsuariosGet, UsuariosPost, UsuariosPut, UsuariosDelete };
-
-

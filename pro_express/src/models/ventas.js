@@ -6,16 +6,16 @@ const Venta = sequelize.define(
   {
     id_venta: {
       type: DataTypes.INTEGER,
-      autoIncrement: true,
       primaryKey: true,
+      autoIncrement: true,
     },
     id_factura: {
       type: DataTypes.INTEGER,
-      allowNull: true,
       references: {
         model: "factura_ventas",
         key: "id_factura",
       },
+      allowNull: false,
     },
     fecha_venta: {
       type: DataTypes.DATE,
@@ -24,6 +24,7 @@ const Venta = sequelize.define(
   },
   {
     tableName: "ventas",
+    schema: "mi_proyecto",
     timestamps: false,
   }
 );

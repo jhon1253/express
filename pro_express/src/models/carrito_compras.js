@@ -6,12 +6,12 @@ const CarritoCompra = sequelize.define(
   {
     id_carrito: {
       type: DataTypes.INTEGER,
-      autoIncrement: true,
       primaryKey: true,
+      autoIncrement: true,
     },
     id_producto: {
-      type: DataTypes.JSONB, // JSONB para PostgreSQL
-      allowNull: true, // Opcional, ya que en SQL no se especifica NOT NULL
+      type: DataTypes.JSONB,
+      allowNull: true,
     },
     id_usuario: {
       type: DataTypes.STRING(255),
@@ -24,6 +24,7 @@ const CarritoCompra = sequelize.define(
   },
   {
     tableName: "carrito_compras",
+    schema: "mi_proyecto",
     timestamps: false,
   }
 );

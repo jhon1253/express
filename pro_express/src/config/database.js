@@ -20,4 +20,12 @@ const ConexionDB = () => {
     );
 };
 
+
+
 module.exports = { ConexionDB, sequelize };
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 const { sequelize } = require("../config/database");
 const { DataTypes } = require("sequelize");
 
-const Usuario = sequelize.define(
+const Usuarios = sequelize.define(
   "usuarios",
   {
     uid_usuario: {
@@ -20,11 +20,11 @@ const Usuario = sequelize.define(
     },
     telefono: {
       type: DataTypes.STRING(20),
-      allowNull: true, // Opcional
+      allowNull: true,
     },
     direccion: {
       type: DataTypes.STRING(255),
-      allowNull: true, // Opcional
+      allowNull: true,
     },
     estado_cuenta: {
       type: DataTypes.INTEGER,
@@ -33,8 +33,9 @@ const Usuario = sequelize.define(
   },
   {
     tableName: "usuarios",
-    timestamps: false, // No manejar timestamps automáticamente
+    schema: "mi_proyecto",
+    timestamps: false,
   }
 );
 
-module.exports = Usuario;
+module.exports = Usuarios;
