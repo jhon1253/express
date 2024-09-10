@@ -1,5 +1,9 @@
 const express = require("express");
-const { CarritoGet, CarritoPost, CarritoPut, CarritoDelete } = require("../controller/carrito_comprasController");
+const { CarritoGet,
+    CarritoPost,
+    CarritoPut,
+    CarritoDelete
+} = require("../controller/carrito_comprasController");
 
 
 const router = express.Router();
