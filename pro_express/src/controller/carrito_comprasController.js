@@ -1,9 +1,13 @@
 const CarritoCompra = require("../models/carrito_compras");
 
 const CarritoGet = async (req, res) => {
+  const { id_usuario } = req.params;
+
   try {
-    const carritos = await CarritoCompra.findAll();
-    res.json(carritos);
+    const carrito = await CarritoCompra.findOne({
+      where: { id_usuario: id_usuario },
+    });
+    res.json(carrito);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -14,7 +18,6 @@ const CarritoPost = async (req, res) => {
 
   try {
     const nuevoCarrito = await CarritoCompra.create({
-    
       id_producto,
       id_usuario,
     });
@@ -35,7 +38,7 @@ const CarritoPut = async (req, res) => {
     }
 
     carrito.id_producto = id_producto;
-    
+
     await carrito.save();
     res.status(200).json(carrito);
   } catch (error) {

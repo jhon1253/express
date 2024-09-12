@@ -8,7 +8,7 @@ const {
 
 const router = express.Router();
 
-router.get("/", UsuariosGet);
+router.get("/:id_usuario", UsuariosGet);
 router.post("/", UsuariosPost);
 router.put("/:uid_usuario", UsuariosPut);
 router.delete("/:uid_usuario", UsuariosDelete);
